@@ -3,6 +3,12 @@ package com.pdadlani.countries;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Country {
+
+    // fields
+
+    // use atomic counter for id
+    // static - it is shared across all employee objects
+    // final - we do not want it to change; but do not want object to change; data inside can
     private static final AtomicLong counter = new AtomicLong();
     private long id;
     private String name;
@@ -10,7 +16,11 @@ public class Country {
     private long landMassSize;
     private int medianAge;
 
+    // constructor
     public Country(String name, long population, long landMassSize, int medianAge) {
+        // to use the atomic counter
+        // call it, and then incrementAndGet() to make sure
+        // each object has its own value
         this.id = counter.incrementAndGet();
         this.name = name;
         this.population = population;
@@ -18,21 +28,12 @@ public class Country {
         this.medianAge = medianAge;
     }
 
-    public Country(Country toClone) {
-        this.id = toClone.id;
-        this.name = toClone.getName();
-        this.population = toClone.getPopulation();
-        this.landMassSize = toClone.getLandMassSize();
-        this.medianAge = toClone.getMedianAge();
-    }
-
     // getters and setters
-    // write out the id
+    // do not need a setter for id; it is already set w/ AtomicLong counter
     public long getId() {
         return id;
     }
 
-    // generate the rest
     public String getName() {
         return name;
     }
@@ -64,8 +65,6 @@ public class Country {
     public void setMedianAge(int medianAge) {
         this.medianAge = medianAge;
     }
-
-    // generate a toString by convention
 
     @Override
     public String toString() {

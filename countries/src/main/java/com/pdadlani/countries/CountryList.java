@@ -3,7 +3,6 @@ package com.pdadlani.countries;
 import java.util.ArrayList;
 
 public class CountryList {
-
     public ArrayList<Country> countryList = new ArrayList<>();
 
     public CountryList() {
@@ -211,7 +210,7 @@ public class CountryList {
     }
 
     public Country findCountry(CheckCountry tester) {
-        for (Country c: countryList) {
+        for (Country c : countryList) {
             if (tester.test(c)) {
                 return c;
             }
@@ -220,13 +219,13 @@ public class CountryList {
     }
 
     public ArrayList<Country> findCountries(CheckCountry tester) {
-        ArrayList<Country> tempCountryList = new ArrayList<>();
+        ArrayList<Country> tempList = new ArrayList<>();
 
-        for (Country c: countryList) {
+        for (Country c : countryList) {
             if (tester.test(c)) {
-                tempCountryList.add(c);
+                tempList.add(c);
             }
         }
-        return tempCountryList;
+        return tempList;
     }
 }
