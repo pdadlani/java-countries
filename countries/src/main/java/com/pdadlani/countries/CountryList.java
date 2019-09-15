@@ -228,4 +228,52 @@ public class CountryList {
         }
         return tempList;
     }
+
+    public Country findCountryMinPop() {
+        long tempPop = Integer.MAX_VALUE;
+        Country minPopCountry = null;
+        for (Country c : countryList) {
+            if (c.getPopulation() < tempPop) {
+                tempPop = c.getPopulation();
+                minPopCountry = c;
+            }
+        }
+        return minPopCountry;
+    }
+
+    public Country findCountryMaxPop() {
+        long tempPop = Integer.MIN_VALUE;
+        Country maxPopCountry = null;
+        for (Country c : countryList) {
+            if (c.getPopulation() > tempPop) {
+                tempPop = c.getPopulation();
+                maxPopCountry = c;
+            }
+        }
+        return maxPopCountry;
+    }
+
+    public Country findCountryMinMedAge() {
+        long tempAge = Integer.MAX_VALUE;
+        Country minMedAgeCountry = null;
+        for (Country c : countryList) {
+            if (c.getMedianAge() < tempAge) {
+                tempAge = c.getMedianAge();
+                minMedAgeCountry = c;
+            }
+        }
+        return minMedAgeCountry;
+    }
+
+    public Country findCountryMaxMedAge() {
+        long tempAge = Integer.MIN_VALUE;
+        Country maxMedAgeCountry = null;
+        for (Country c : countryList) {
+            if (c.getMedianAge() > tempAge) {
+                tempAge = c.getMedianAge();
+                maxMedAgeCountry = c;
+            }
+        }
+        return maxMedAgeCountry;
+    }
 }
